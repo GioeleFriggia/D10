@@ -1,3 +1,5 @@
+import com.github.javafaker.Faker;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -72,8 +74,35 @@ public class Main {
     }
 
     private static void aggiungiElemento(Scanner scanner, CatalogoBibliotecario catalogo) {
-        // Implementa la logica per l'aggiunta di un elemento al catalogo
-        // Puoi chiedere all'utente di inserire manualmente i dettagli del libro o generare dati casuali
+        System.out.println("Vuoi aggiungere un libro (L) o una rivista (R)?");
+        String scelta = scanner.nextLine().toUpperCase();
+        if (scelta.equals("L")) {
+            // Aggiungi un libro generato casualmente
+            Faker faker = new Faker();
+            Libro libro = new Libro(
+                    generaISBN(), // Genera un ISBN casuale
+                    faker.book().title(),
+                    faker.number().numberBetween(1900, 2023),
+                    faker.number().numberBetween(50, 1000),
+                    faker.book().author(),
+                    faker.book().genre()
+            );
+            catalogo.aggiungiLibro(libro);
+            System.out.println("Libro aggiunto: " + libro.getTitolo());
+        } else if (scelta.equals("R")) {
+            // Aggiungi una rivista generata casualmente (aggiungi logica per la generazione di riviste se necessario)
+            System.out.println("Funzionalità non ancora implementata per le riviste.");
+        } else {
+            System.out.println("Scelta non valida. Riprova.");
+        }
+    }
+
+    private static String generaISBN() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 10; i++) {
+            sb.append((int) (Math.random() * 10));
+        }
+        return sb.toString();
     }
 
     private static void rimuoviElemento(Scanner scanner, CatalogoBibliotecario catalogo) {
@@ -97,37 +126,63 @@ public class Main {
         System.out.println("Inserisci l'anno di pubblicazione da cercare:");
         int anno = scanner.nextInt();
         scanner.nextLine(); // Consuma il carattere newline
-        // Implementa la logica per la ricerca per anno di pubblicazione
+        List<Libro> libri = catalogo.ricercaLibriPerAnnoPubblicazione(anno);
+        if (!libri.isEmpty()) {
+            System.out.println("Libri pubblicati nel " + anno + ":");
+            for (Libro libro : libri) {
+                System.out.println(libro.getTitolo());
+            }
+        } else {
+            System.out.println("Nessun libro trovato per l'anno specificato.");
+        }
     }
 
     private static void ricercaPerAutore(Scanner scanner, CatalogoBibliotecario catalogo) {
-        System.out.println("Inserisci l'autore da cercare:");
+        System.out.println("Inserisci il nome dell'autore da cercare:");
         String autore = scanner.nextLine();
-        // Implementa la logica per la ricerca per autore
+        List<Libro> libri = catalogo.ricercaLibriPerAutore(autore);
+        if (!libri.isEmpty()) {
+            System.out.println("Libri scritti da " + autore + ":");
+            for (Libro libro : libri) {
+                System.out.println(libro.getTitolo());
+            }
+        } else {
+            System.out.println("Nessun libro trovato per l'autore specificato.");
+        }
     }
 
     private static void visualizzaLibri(CatalogoBibliotecario catalogo) {
-        System.out.println("Elenco dei libri:");
-        for (Libro libro : catalogo.getLibri()) {
-            System.out.println(libro);
+        List<Libro> libri = catalogo.getLibri();
+        if (!libri.isEmpty()) {
+            System.out.println("Elenco dei libri nel catalogo:");
+            for (Libro libro : libri) {
+                System.out.println(libro.getTitolo());
+            }
+        } else {
+            System.out.println("Nessun libro nel catalogo.");
         }
     }
 
     private static void visualizzaRiviste(CatalogoBibliotecario catalogo) {
-        System.out.println("Elenco delle riviste:");
-        for (Rivista rivista : catalogo.getRiviste()) {
-            System.out.println(rivista);
+        List<Rivista> riviste = catalogo.getRiviste();
+        if (!riviste.isEmpty()) {
+            System.out.println("Elenco delle riviste nel catalogo:");
+            for (Rivista rivista : riviste) {
+                System.out.println(rivista.getTitolo());
+            }
+        } else {
+            System.out.println("Nessuna rivista nel catalogo.");
         }
     }
 
     private static void salvaSuDisco(Scanner scanner, CatalogoBibliotecario catalogo) {
-        System.out.println("Inserisci il percorso del file su cui salvare l'archivio:");
+        System.out.println("Inserisci il percorso del file di salvataggio:");
         String filePath = scanner.nextLine();
         catalogo.saveCatalogo(filePath);
     }
 
     private static void caricaDaDisco(Scanner scanner, CatalogoBibliotecario catalogo) {
-        System.out.println("Inserisci il percorso del file da cui caricare l'archivio:");
+        System.out.println("Inserisci il percorso del file da caricare:");
         String filePath = scanner.nextLine();
         catalogo.caricaCatalogo(filePath);
     }

@@ -1,40 +1,40 @@
-LIBRO;9781808251818;Butter In a Lordly Dish;1987;725;Silvano Mancini;Mystery
-LIBRO;9790806464229;The Skull Beneath the Skin;1992;957;Mariapia Gatti;Mythology
-LIBRO;9790590431780;I Know Why the Caged Bird Sings;1977;262;Ing. Miriana Ferraro;Fiction in verse
-LIBRO;9790874266039;The Line of Beauty;2004;688;Lidia Fontana;Fable
-LIBRO;9780851025865;Waiting for the Barbarians;2002;482;Fernando Parisi;Classic
-LIBRO;9790930023415;Consider the Lilies;1988;80;Lidia D'amico;Classic
-LIBRO;9781028888177;Where Angels Fear to Tread;1998;140;Dott. Soriana Bernardi;Mythology
-LIBRO;9790566182135;Recalled to Life;1988;304;Renato Fontana;Folklore
-LIBRO;9780590100816;East of Eden;1993;781;Sirio Marian;Biography/Autobiography
-LIBRO;9791941406174;Time To Murder And Create;1975;356;Dr. Nestore Martini;Fiction narrative
-LIBRO;9780850235524;The Heart Is Deceitful Above All Things;1977;64;Ausonio Battaglia;Short story
-LIBRO;9781080365708;After Many a Summer Dies the Swan;1977;189;Cosetta De rosa;Classic
-LIBRO;9781011499472;Ah, Wilderness!;1974;663;Siro Grassi;Folklore
-LIBRO;9791257246501;I Sing the Body Electric;1967;892;Olimpia De luca;Reference book
-LIBRO;9790080065433;This Lime Tree Bower;1959;140;Nestore Farin;Mythopoeia
-LIBRO;9790863665645;Tiger! Tiger!;1965;409;Romeo Bellini;Fable
-LIBRO;9790040517866;Dying of the Light;2015;656;Dott. Quarto Ferrara;Textbook
-LIBRO;9791438844298;Terrible Swift Sword;1991;157;Gregorio Marian;Short story
-LIBRO;9780864884343;Time of our Darkness;1959;629;Costantino Bianc;Mystery
-LIBRO;9780378860543;The Wings of the Dove;2000;430;Violante Giuliani;Historical fiction
-RIVISTA;9791878261914;Brandy of the Damned;1994;90;SEMESTRALE
-RIVISTA;9790743959338;The Golden Bowl;1954;84;SETTIMANALE
-RIVISTA;9790032527712;The Grapes of Wrath;1963;63;SEMESTRALE
-RIVISTA;9781208253337;To Your Scattered Bodies Go;1983;76;SETTIMANALE
-RIVISTA;9790656075613;Unweaving the Rainbow;1994;86;MENSILE
-RIVISTA;9781993497558;His Dark Materials;2014;98;MENSILE
-RIVISTA;9791888363172;Blue Remembered Earth;1996;74;SEMESTRALE
-RIVISTA;9780936663241;If Not Now, When?;1988;57;SETTIMANALE
-RIVISTA;9791968913839;Where Angels Fear to Tread;2015;90;SEMESTRALE
-RIVISTA;9791790265885;The Painted Veil;1962;64;SETTIMANALE
-RIVISTA;9780981896328;Carrion Comfort;1960;60;MENSILE
-RIVISTA;9780852332160;Fear and Trembling;2005;77;MENSILE
-RIVISTA;9780896171367;Down to a Sunless Sea;1978;87;SEMESTRALE
-RIVISTA;9791990995797;The Moon by Night;1965;52;SETTIMANALE
-RIVISTA;9790223198448;The Wings of the Dove;2011;82;SEMESTRALE
-RIVISTA;9791325898281;Oh! To be in England;2006;56;SEMESTRALE
-RIVISTA;9780566023286;Infinite Jest;1984;81;SETTIMANALE
-RIVISTA;9790492387130;Ego Dominus Tuus;1966;59;SEMESTRALE
-RIVISTA;9791975090707;Blood's a Rover;1987;72;MENSILE
-RIVISTA;9781860947018;A Summer Bird-Cage;1960;63;SETTIMANALE
+LIBRO;7096770132777;The Needle's Eye;1950;670;Aroldo Ferrari;Folklore
+LIBRO;0023510047440;Endless Night;1973;841;Sig. Leone D'amico;Reference book
+LIBRO;1619928636562;The Mirror Crack'd from Side to Side;1961;409;Sandro Costa;Tall tale
+LIBRO;2431222489031;Wildfire at Midnight;2014;608;Muzio Lombardi;Legend
+LIBRO;6972291160539;The House of Mirth;1974;782;Lazzaro Damico;Speech
+LIBRO;9495052141246;A Confederacy of Dunces;2008;900;Folco Grassi;Textbook
+LIBRO;5748555280895;The Daffodil Sky;1966;805;Enrica Negri;Speech
+LIBRO;0605613288319;Postern of Fate;2016;400;Eriberto Russo;Metafiction
+LIBRO;7637038483009;That Hideous Strength;1977;89;Pietro Serr;Biography/Autobiography
+LIBRO;5790596832000;The World, the Flesh and the Devil;1956;887;Carmela Rizzo;Metafiction
+LIBRO;5883639286733;Blood's a Rover;1994;912;Dr. Demi Pagano;Textbook
+LIBRO;3908308742313;The Last Enemy;1981;782;Valdo Silvestri;Comic/Graphic Novel
+LIBRO;3117998922242;A Summer Bird-Cage;2003;834;Lino Bianchi;Historical fiction
+LIBRO;7161171480344;A Handful of Dust;1988;638;Zelida Giuliani;Horror
+LIBRO;8430574559697;Mr Standfast;2006;906;Violante Sartori;Mythology
+LIBRO;2811005519139;Recalled to Life;1984;196;Claudia Ross;Narrative nonfiction
+LIBRO;5549998628025;The Mirror Crack'd from Side to Side;2001;652;Quarto Mancini;Mythology
+LIBRO;8195598981376;Unweaving the Rainbow;2002;313;Olimpia Palmieri;Tall tale
+LIBRO;9573370256879;A Time to Kill;1990;188;Rosaria Marino;Short story
+LIBRO;4620417492301;Vile Bodies;1960;847;Dr. Teseo Rinaldi;Fanfiction
+RIVISTA;8907820177757;The Parliament of Man;1972;62;SETTIMANALE
+RIVISTA;8899336276879;Down to a Sunless Sea;2012;60;SETTIMANALE
+RIVISTA;7913092000530;Beneath the Bleeding;1951;51;MENSILE
+RIVISTA;2141360047615;The Far-Distant Oxus;2016;75;SEMESTRALE
+RIVISTA;1131467425833;Time To Murder And Create;1977;94;SETTIMANALE
+RIVISTA;9800179000376;The Far-Distant Oxus;1956;51;SETTIMANALE
+RIVISTA;1597831847493;Quo Vadis;1973;84;SETTIMANALE
+RIVISTA;8621729317467;Gone with the Wind;1985;94;SETTIMANALE
+RIVISTA;4994117583603;When the Green Woods Laugh;1981;66;MENSILE
+RIVISTA;6691194602514;Beneath the Bleeding;1970;50;SEMESTRALE
+RIVISTA;6047392856152;Terrible Swift Sword;1952;69;SEMESTRALE
+RIVISTA;0751036371610;Endless Night;1982;57;SETTIMANALE
+RIVISTA;5299325539634;Beneath the Bleeding;1956;69;SETTIMANALE
+RIVISTA;5915504664232;Death Be Not Proud;1985;81;MENSILE
+RIVISTA;3753846846922;A Scanner Darkly;1971;92;SEMESTRALE
+RIVISTA;2178450480823;Those Barren Leaves, Thrones, Dominations;1994;54;SETTIMANALE
+RIVISTA;6237154396893;I Know Why the Caged Bird Sings;2000;62;SEMESTRALE
+RIVISTA;2649996937799;The Torment of Others;1964;81;SETTIMANALE
+RIVISTA;6725022552934;Nine Coaches Waiting;1976;50;MENSILE
+RIVISTA;9807566832609;Recalled to Life;2011;81;SEMESTRALE
