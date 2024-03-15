@@ -12,16 +12,18 @@ public class Rivista implements Serializable {
     private int annoPubblicazione;
     private int numeroPagine;
     private Periodicita periodicita;
+    private String autore; // Aggiungo l'attributo autore
 
     public Rivista() {
     }
 
-    public Rivista(String isbn, String titolo, int annoPubblicazione, int numeroPagine, Periodicita periodicita) {
+    public Rivista(String isbn, String titolo, int annoPubblicazione, int numeroPagine, Periodicita periodicita, String autore) {
         this.isbn = isbn;
         this.titolo = titolo;
         this.annoPubblicazione = annoPubblicazione;
         this.numeroPagine = numeroPagine;
         this.periodicita = periodicita;
+        this.autore = autore; // Inizializzo l'attributo autore
     }
 
     public String getIsbn() {
@@ -62,5 +64,15 @@ public class Rivista implements Serializable {
 
     public void setPeriodicita(Periodicita periodicita) {
         this.periodicita = periodicita;
+    }
+
+    // Aggiungo il metodo getAutore()
+    public String getAutore() {
+        return autore;
+    }
+
+    // Aggiungo il metodo setAutore()
+    public void setAutore(String autore) {
+        this.autore = autore;
     }
 }
