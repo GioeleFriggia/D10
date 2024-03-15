@@ -1,5 +1,3 @@
-import java.util.List;
-import java.util.ArrayList;
 import java.io.Serializable;
 
 public class Libro implements Serializable {
@@ -12,8 +10,7 @@ public class Libro implements Serializable {
     private String autore;
     private String genere;
 
-    public Libro() {
-    }
+    public Libro() {}
 
     public Libro(String isbn, String titolo, int annoPubblicazione, int numeroPagine, String autore, String genere) {
         this.isbn = isbn;
@@ -70,5 +67,17 @@ public class Libro implements Serializable {
 
     public void setGenere(String genere) {
         this.genere = genere;
+    }
+
+    @Override
+    public String toString() {
+        return "Libro{" +
+                "isbn='" + isbn + '\'' +
+                ", titolo='" + titolo + '\'' +
+                ", annoPubblicazione=" + annoPubblicazione +
+                ", numeroPagine=" + numeroPagine +
+                ", autore='" + autore + '\'' +
+                ", genere='" + genere + '\'' +
+                '}';
     }
 }

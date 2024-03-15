@@ -26,6 +26,8 @@ public class Rivista implements Serializable {
         this.autore = autore;
     }
 
+    // Metodi getter e setter
+
     public String getIsbn() {
         return isbn;
     }

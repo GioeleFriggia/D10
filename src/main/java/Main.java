@@ -27,7 +27,19 @@ public class Main {
                 "LIBRO;978-0-262-03384-8;The Art of Computer Programming;1997;316;Donald Knuth;Algorithms",
                 "LIBRO;978-0-262-13316-0;Concrete Mathematics;1989;657;Ronald L. Graham;Mathematics",
                 "LIBRO;978-0-262-68000-9;The C Programming Language;1978;288;Brian Kernighan;Programming",
-                "LIBRO;978-0-321-48681-3;Introduction to Automata Theory, Languages, and Computation;2006;550;John E. Hopcroft;Theory of Computation"
+                "LIBRO;978-0-321-48681-3;Introduction to Automata Theory, Languages, and Computation;2006;550;John E. Hopcroft;Theory of Computation",
+                "LIBRO;978-0-13-705040-8;Clean Agile: Back to Basics;2019;256;Robert C. Martin;Programming",
+                "LIBRO;978-0-13-409266-6;Refactoring: Improving the Design of Existing Code;2018;448;Martin Fowler;Programming",
+                "LIBRO;978-1-4919-2640-9;Java Concurrency in Practice;2006;432;Brian Goetz;Programming",
+                "LIBRO;978-1-4919-2106-0;Test Driven Development: By Example;2002;240;Kent Beck;Programming",
+                "LIBRO;978-0-321-95868-6;Effective Modern C++: 42 Specific Ways to Improve Your Use of C++11 and C++14;2014;352;Scott Meyers;Programming",
+                "LIBRO;978-0-596-00733-4;The Pragmatic Programmer: Your Journey to Mastery;1999;352;Andrew Hunt, David Thomas;Programming",
+                "LIBRO;978-0-13-485248-5;Operating Systems: Three Easy Pieces;2014;675;Remzi H. Arpaci-Dusseau, Andrea C. Arpaci-Dusseau;Operating Systems",
+                "LIBRO;978-0-07-351720-9;Database Management Systems;2019;784;Raghu Ramakrishnan, Johannes Gehrke;Database",
+                "LIBRO;978-0-13-276253-4;Algorithms;2011;976;Robert Sedgewick, Kevin Wayne;Algorithms",
+                "LIBRO;978-0-12-805055-9;Foundations of Machine Learning;2019;444;Mehryar Mohri, Afshin Rostamizadeh, Ameet Talwalkar;Machine Learning"
+
+
         };
 
         for (String libroString : libriStatici) {
@@ -45,7 +57,35 @@ public class Main {
 
 
         String[] rivisteStatiche = {
-             1
+                "RIVISTA;0360-0300;Communications of the ACM;2022;100;MENSILE",
+                "RIVISTA;0734-3227;IEEE Spectrum;2022;100;MENSILE",
+                "RIVISTA;0888-8507;Scientific American;2022;100;MENSILE",
+                "RIVISTA;0036-8075;Science;2022;100;SETTIMANALE",
+                "RIVISTA;1095-9203;Trends in Cognitive Sciences;2022;100;MENSILE",
+                "RIVISTA;1063-4266;Psychology and Aging;2022;100;MENSILE",
+                "RIVISTA;1467-9280;Human Brain Mapping;2022;100;MENSILE",
+                "RIVISTA;0270-7306;IEEE Transactions on Pattern Analysis and Machine Intelligence;2022;100;MENSILE",
+                "RIVISTA;0003-066X;American Psychologist;2022;100;MENSILE",
+                "RIVISTA;0735-7036;Psychology of Addictive Behaviors;2022;100;MENSILE",
+                "RIVISTA;0036-8075;Science;2019;100;SETTIMANALE",
+                "RIVISTA;0002-9602;American Journal of Sociology;2018;100;MENSILE",
+                "RIVISTA;0022-3514;Journal of Personality and Social Psychology;2017;100;MENSILE",
+                "RIVISTA;0003-066X;American Psychologist;2016;100;MENSILE",
+                "RIVISTA;0046-8177;Journal of Educational Psychology;2015;100;MENSILE",
+                "RIVISTA;0018-716X;Human Communication Research;2014;100;MENSILE",
+                "RIVISTA;1059-1028;Psychology of Women Quarterly;2013;100;MENSILE",
+                "RIVISTA;0003-0064;Behavior Therapy;2012;100;MENSILE",
+                "RIVISTA;1040-7308;Professional Psychology: Research and Practice;2011;100;MENSILE",
+                "RIVISTA;0009-3920;Cultural Diversity and Ethnic Minority Psychology;2010;100;MENSILE",
+                "RIVISTA;0360-0025;American Psychologist;2009;100;MENSILE",
+                "RIVISTA;1063-4266;Psychology and Aging;2008;100;MENSILE",
+                "RIVISTA;1094-3412;Journal of the Society for Social Work and Research;2007;100;MENSILE",
+                "RIVISTA;0022-2437;Journal of Comparative Psychology;2006;100;MENSILE",
+                "RIVISTA;0735-7036;Psychology of Addictive Behaviors;2005;100;MENSILE",
+                "RIVISTA;0893-164X;Psychology of Men & Masculinities;2004;100;MENSILE",
+                "RIVISTA;1063-5157;Psychology of Women Quarterly;2003;100;MENSILE",
+                "RIVISTA;1050-3293;Health Psychology;2002;100;MENSILE",
+                "RIVISTA;1064-1297;Psychological Assessment;2001;100;MENSILE"
         };
 
         for (String rivistaString : rivisteStatiche) {
@@ -54,13 +94,13 @@ public class Main {
                 try {
                     Rivista.Periodicita periodicita = Rivista.Periodicita.valueOf(rivistaAttrs[5].toUpperCase());
                     Rivista rivista = new Rivista(
-                                                rivistaAttrs[1], // ISBN
-                                                rivistaAttrs[2], // Titolo
-                                                Integer.parseInt(rivistaAttrs[3]), // Anno di pubblicazione
-                                                Integer.parseInt(rivistaAttrs[4]), // Numero di pagine
-                            periodicita, // Autore
-                            "" // Periodicità
-                                        );
+                            rivistaAttrs[1], // ISBN
+                            rivistaAttrs[2], // Titolo
+                            Integer.parseInt(rivistaAttrs[3]), // Anno di pubblicazione
+                            Integer.parseInt(rivistaAttrs[4]), // Numero di pagine
+                            periodicita, // Periodicità
+                            "" // Autore
+                    );
                     catalogo.aggiungiRivista(rivista);
                 } catch (IllegalArgumentException e) {
                     System.out.println("Periodicità non valida per la rivista: " + rivistaAttrs[2]);
@@ -86,7 +126,7 @@ public class Main {
             System.out.println("11. Esci");
 
             int scelta = scanner.nextInt();
-            scanner.nextLine(); // Consuma il carattere newline
+            scanner.nextLine(); 
 
             switch (scelta) {
                 case 1:
@@ -269,4 +309,5 @@ public class Main {
         String filePath = scanner.nextLine();
         catalogo.caricaCatalogo(filePath);
     }
+
 }
