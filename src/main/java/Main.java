@@ -126,7 +126,7 @@ public class Main {
             System.out.println("11. Esci");
 
             int scelta = scanner.nextInt();
-            scanner.nextLine(); 
+            scanner.nextLine();
 
             switch (scelta) {
                 case 1:
