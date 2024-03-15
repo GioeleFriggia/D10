@@ -1,4 +1,3 @@
-import com.github.javafaker.Faker;
 import java.util.List;
 import java.util.Scanner;
 
@@ -6,6 +5,85 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         CatalogoBibliotecario catalogo = new CatalogoBibliotecario();
+
+        // Aggiungi 20 libri statici al catalogo
+        String[] libriStatici = {
+                "LIBRO;978-0-13-468599-1;Clean Code;2008;464;Robert C. Martin;Programming",
+                "LIBRO;978-0-07-160630-1;Effective Java;2008;416;Joshua Bloch;Programming",
+                "LIBRO;978-0-201-63361-0;Design Patterns;1994;395;Erich Gamma;Programming",
+                "LIBRO;978-0-07-352332-3;Database Systems;2011;1304;Thomas Connolly;Database",
+                "LIBRO;978-0-12-394424-4;Introduction to Algorithms;2009;1312;Thomas H. Cormen;Algorithms",
+                "LIBRO;978-0-13-485248-6;Operating System Concepts;2018;976;Abraham Silberschatz;Operating Systems",
+                "LIBRO;978-0-321-54705-5;Computer Networking;2012;960;James F. Kurose;Networking",
+                "LIBRO;978-1-119-05655-9;Data Science for Business;2013;414;Foster Provost;Data Science",
+                "LIBRO;978-0-596-52068-7;The Mythical Man-Month;1995;322;Frederick P. Brooks Jr.;Software Engineering",
+                "LIBRO;978-0-321-74284-0;Clean Architecture;2017;432;Robert C. Martin;Programming",
+                "LIBRO;978-0-13-297129-4;Introduction to the Theory of Computation;2012;478;Michael Sipser;Theory of Computation",
+                "LIBRO;978-0-321-81127-7;Code Complete;1993;960;Steve McConnell;Programming",
+                "LIBRO;978-0-13-409266-9;Computer Systems;2016;1119;Randal E. Bryant;Computer Architecture",
+                "LIBRO;978-0-321-54835-9;Distributed Systems;2011;670;Andrew S. Tanenbaum;Distributed Computing",
+                "LIBRO;978-0-13-468603-5;Clean Architecture in PHP;2020;407;Kristopher Wilson;Programming",
+                "LIBRO;978-0-262-03384-8;The Art of Computer Programming;1997;316;Donald Knuth;Algorithms",
+                "LIBRO;978-0-262-13316-0;Concrete Mathematics;1989;657;Ronald L. Graham;Mathematics",
+                "LIBRO;978-0-262-68000-9;The C Programming Language;1978;288;Brian Kernighan;Programming",
+                "LIBRO;978-0-321-48681-3;Introduction to Automata Theory, Languages, and Computation;2006;550;John E. Hopcroft;Theory of Computation"
+        };
+
+        for (String libroString : libriStatici) {
+            String[] libroAttrs = libroString.split(";");
+            Libro libro = new Libro(
+                    libroAttrs[1], // ISBN
+                    libroAttrs[2], // Titolo
+                    Integer.parseInt(libroAttrs[3]), // Anno di pubblicazione
+                    Integer.parseInt(libroAttrs[4]), // Numero di pagine
+                    libroAttrs[5], // Autore
+                    libroAttrs[6]  // Genere
+            );
+            catalogo.aggiungiLibro(libro);
+        }
+
+        // Aggiungi 20 riviste statiche al catalogo
+        String[] rivisteStatiche = {
+                "RIVISTA;0036-8075;Science;2019;100;SETTIMANALE",
+                "RIVISTA;0002-9602;American Journal of Sociology;2018;100;MENSILE",
+                "RIVISTA;0022-3514;Journal of Personality and Social Psychology;2017;100;MENSILE",
+                "RIVISTA;0003-066X;American Psychologist;2016;100;MENSILE",
+                "RIVISTA;0046-8177;Journal of Educational Psychology;2015;100;MENSILE",
+                "RIVISTA;0018-716X;Human Communication Research;2014;100;MENSILE",
+                "RIVISTA;1059-1028;Psychology of Women Quarterly;2013;100;MENSILE",
+                "RIVISTA;0003-0064;Behavior Therapy;2012;100;MENSILE",
+                "RIVISTA;1040-7308;Professional Psychology: Research and Practice;2011;100;MENSILE",
+                "RIVISTA;0009-3920;Cultural Diversity and Ethnic Minority Psychology;2010;100;MENSILE",
+                "RIVISTA;0360-0025;American Psychologist;2009;100;MENSILE",
+                "RIVISTA;1063-4266;Psychology and Aging;2008;100;MENSILE",
+                "RIVISTA;1094-3412;Journal of the Society for Social Work and Research;2007;100;MENSILE",
+                "RIVISTA;0022-2437;Journal of Comparative Psychology;2006;100;MENSILE",
+                "RIVISTA;0735-7036;Psychology of Addictive Behaviors;2005;100;MENSILE",
+                "RIVISTA;0893-164X;Psychology of Men & Masculinities;2004;100;MENSILE",
+                "RIVISTA;1063-5157;Psychology of Women Quarterly;2003;100;MENSILE",
+                "RIVISTA;1050-3293;Health Psychology;2002;100;MENSILE",
+                "RIVISTA;1064-1297;Psychological Assessment;2001;100;MENSILE"
+        };
+
+        for (String rivistaString : rivisteStatiche) {
+            String[] rivistaAttrs = rivistaString.split(";");
+            Rivista.Periodicita periodicita;
+            try {
+                periodicita = Rivista.Periodicita.valueOf(rivistaAttrs[5]);
+            } catch (IllegalArgumentException e) {
+                System.out.println("Periodicità non valida. Assicurati di inserire un valore valido tra i seguenti: SETTIMANALE, MENSILE, TRIMESTRALE, ANNUALE.");
+                continue;
+            }
+            Rivista rivista = new Rivista(
+                    rivistaAttrs[1], // ISBN
+                    rivistaAttrs[2], // Titolo
+                    Integer.parseInt(rivistaAttrs[3]), // Anno di pubblicazione
+                    Integer.parseInt(rivistaAttrs[4]), // Numero di pagine
+                    "", // Autore
+                    periodicita // Periodicità
+            );
+            catalogo.aggiungiRivista(rivista);
+        }
 
         boolean continua = true;
         while (continua) {
@@ -17,52 +95,46 @@ public class Main {
             System.out.println("5. Ricerca per autore");
             System.out.println("6. Visualizza libri");
             System.out.println("7. Visualizza riviste");
-            System.out.println("8. Salvataggio su disco dell'archivio");
-            System.out.println("9. Caricamento dal disco dell'archivio");
-            System.out.println("10. Esci");
+            System.out.println("8. Visualizza tutti i libri e le riviste");
+            System.out.println("9. Salvataggio su disco dell'archivio");
+            System.out.println("10. Caricamento dal disco dell'archivio");
+            System.out.println("11. Esci");
 
             int scelta = scanner.nextInt();
             scanner.nextLine(); // Consuma il carattere newline
 
             switch (scelta) {
                 case 1:
-                    // Aggiungi un elemento
                     aggiungiElemento(scanner, catalogo);
                     break;
                 case 2:
-                    // Rimuovi un elemento per ISBN
                     rimuoviElemento(scanner, catalogo);
                     break;
                 case 3:
-                    // Ricerca per ISBN
                     ricercaPerISBN(scanner, catalogo);
                     break;
                 case 4:
-                    // Ricerca per anno di pubblicazione
                     ricercaPerAnnoPubblicazione(scanner, catalogo);
                     break;
                 case 5:
-                    // Ricerca per autore
                     ricercaPerAutore(scanner, catalogo);
                     break;
                 case 6:
-                    // Visualizza libri
                     visualizzaLibri(catalogo);
                     break;
                 case 7:
-                    // Visualizza riviste
                     visualizzaRiviste(catalogo);
                     break;
                 case 8:
-                    // Salvataggio su disco dell'archivio
-                    salvaSuDisco(scanner, catalogo);
+                    visualizzaTutti(catalogo);
                     break;
                 case 9:
-                    // Caricamento dal disco dell'archivio
-                    caricaDaDisco(scanner, catalogo);
+                    salvaSuDisco(scanner, catalogo);
                     break;
                 case 10:
-                    // Esci dal programma
+                    caricaDaDisco(scanner, catalogo);
+                    break;
+                case 11:
                     continua = false;
                     break;
                 default:
@@ -77,33 +149,43 @@ public class Main {
         System.out.println("Vuoi aggiungere un libro (L) o una rivista (R)?");
         String scelta = scanner.nextLine().toUpperCase();
         if (scelta.equals("L")) {
-            // Aggiungi un libro generato casualmente
-            Faker faker = new Faker();
-            Libro libro = new Libro(
-                    generaISBN(), // Genera un ISBN casuale
-                    faker.book().title(),
-                    faker.number().numberBetween(1900, 2023),
-                    faker.number().numberBetween(50, 1000),
-                    faker.book().author(),
-                    faker.book().genre()
-            );
-            catalogo.aggiungiLibro(libro);
-            System.out.println("Libro aggiunto: " + libro.getTitolo());
+            aggiungiLibro(scanner, catalogo);
         } else if (scelta.equals("R")) {
-            // Aggiungi una rivista generata casualmente (aggiungi logica per la generazione di riviste se necessario)
-            System.out.println("Funzionalità non ancora implementata per le riviste.");
+            aggiungiRivista(scanner, catalogo);
         } else {
             System.out.println("Scelta non valida. Riprova.");
         }
     }
 
-    private static String generaISBN() {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < 10; i++) {
-            sb.append((int) (Math.random() * 10));
+    private static void aggiungiLibro(Scanner scanner, CatalogoBibliotecario catalogo) {
+        System.out.println("Inserisci i dettagli del libro separati da punto e virgola (ISBN;Titolo;Anno;Pagine;Autore;Genere):");
+        String[] input = scanner.nextLine().split(";");
+        if (input.length == 6) {
+            Libro libro = new Libro(input[0], input[1], Integer.parseInt(input[2]), Integer.parseInt(input[3]), input[4], input[5]);
+            catalogo.aggiungiLibro(libro);
+            System.out.println("Libro aggiunto: " + libro.getTitolo());
+        } else {
+            System.out.println("Input non valido. Assicurati di inserire tutti i dettagli separati da punto e virgola.");
         }
-        return sb.toString();
     }
+
+    private static void aggiungiRivista(Scanner scanner, CatalogoBibliotecario catalogo) {
+        System.out.println("Inserisci i dettagli della rivista separati da punto e virgola (ISBN;Titolo;Anno;Pagine;Periodicità):");
+        String[] input = scanner.nextLine().split(";");
+        if (input.length == 5) {
+            try {
+                Rivista.Periodicita periodicita = Rivista.Periodicita.valueOf(input[4].toUpperCase());
+                Rivista rivista = new Rivista(input[0], input[1], Integer.parseInt(input[2]), Integer.parseInt(input[3]), "", periodicita);
+                catalogo.aggiungiRivista(rivista);
+                System.out.println("Rivista aggiunta: " + rivista.getTitolo());
+            } catch (IllegalArgumentException e) {
+                System.out.println("Periodicità non valida. Assicurati di inserire un valore valido tra i seguenti: SETTIMANALE, MENSILE, TRIMESTRALE, ANNUALE.");
+            }
+        } else {
+            System.out.println("Input non valido. Assicurati di inserire tutti i dettagli separati da punto e virgola.");
+        }
+    }
+
 
     private static void rimuoviElemento(Scanner scanner, CatalogoBibliotecario catalogo) {
         System.out.println("Inserisci l'ISBN dell'elemento da rimuovere:");
@@ -156,7 +238,13 @@ public class Main {
         if (!libri.isEmpty()) {
             System.out.println("Elenco dei libri nel catalogo:");
             for (Libro libro : libri) {
-                System.out.println(libro.getTitolo());
+                System.out.println("Titolo: " + libro.getTitolo());
+                System.out.println("Autore: " + libro.getAutore());
+                System.out.println("Anno di pubblicazione: " + libro.getAnnoPubblicazione());
+                System.out.println("ISBN: " + libro.getIsbn());
+                System.out.println("Numero di pagine: " + libro.getNumeroPagine());
+                System.out.println("Genere: " + libro.getGenere());
+                System.out.println("------------------------------------");
             }
         } else {
             System.out.println("Nessun libro nel catalogo.");
@@ -168,11 +256,21 @@ public class Main {
         if (!riviste.isEmpty()) {
             System.out.println("Elenco delle riviste nel catalogo:");
             for (Rivista rivista : riviste) {
-                System.out.println(rivista.getTitolo());
+                System.out.println("Titolo: " + rivista.getTitolo());
+                System.out.println("Anno di pubblicazione: " + rivista.getAnnoPubblicazione());
+                System.out.println("ISBN: " + rivista.getIsbn());
+                System.out.println("Numero di pagine: " + rivista.getNumeroPagine());
+                System.out.println("Periodicità: " + rivista.getPeriodicita());
+                System.out.println("------------------------------------");
             }
         } else {
             System.out.println("Nessuna rivista nel catalogo.");
         }
+    }
+
+    private static void visualizzaTutti(CatalogoBibliotecario catalogo) {
+        visualizzaLibri(catalogo);
+        visualizzaRiviste(catalogo);
     }
 
     private static void salvaSuDisco(Scanner scanner, CatalogoBibliotecario catalogo) {
