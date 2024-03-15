@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -42,47 +43,31 @@ public class Main {
             catalogo.aggiungiLibro(libro);
         }
 
-        // Aggiungi 20 riviste statiche al catalogo
+
         String[] rivisteStatiche = {
-                "RIVISTA;0036-8075;Science;2019;100;SETTIMANALE",
-                "RIVISTA;0002-9602;American Journal of Sociology;2018;100;MENSILE",
-                "RIVISTA;0022-3514;Journal of Personality and Social Psychology;2017;100;MENSILE",
-                "RIVISTA;0003-066X;American Psychologist;2016;100;MENSILE",
-                "RIVISTA;0046-8177;Journal of Educational Psychology;2015;100;MENSILE",
-                "RIVISTA;0018-716X;Human Communication Research;2014;100;MENSILE",
-                "RIVISTA;1059-1028;Psychology of Women Quarterly;2013;100;MENSILE",
-                "RIVISTA;0003-0064;Behavior Therapy;2012;100;MENSILE",
-                "RIVISTA;1040-7308;Professional Psychology: Research and Practice;2011;100;MENSILE",
-                "RIVISTA;0009-3920;Cultural Diversity and Ethnic Minority Psychology;2010;100;MENSILE",
-                "RIVISTA;0360-0025;American Psychologist;2009;100;MENSILE",
-                "RIVISTA;1063-4266;Psychology and Aging;2008;100;MENSILE",
-                "RIVISTA;1094-3412;Journal of the Society for Social Work and Research;2007;100;MENSILE",
-                "RIVISTA;0022-2437;Journal of Comparative Psychology;2006;100;MENSILE",
-                "RIVISTA;0735-7036;Psychology of Addictive Behaviors;2005;100;MENSILE",
-                "RIVISTA;0893-164X;Psychology of Men & Masculinities;2004;100;MENSILE",
-                "RIVISTA;1063-5157;Psychology of Women Quarterly;2003;100;MENSILE",
-                "RIVISTA;1050-3293;Health Psychology;2002;100;MENSILE",
-                "RIVISTA;1064-1297;Psychological Assessment;2001;100;MENSILE"
+             1
         };
 
         for (String rivistaString : rivisteStatiche) {
             String[] rivistaAttrs = rivistaString.split(";");
-            Rivista.Periodicita periodicita;
-            try {
-                periodicita = Rivista.Periodicita.valueOf(rivistaAttrs[5]);
-            } catch (IllegalArgumentException e) {
-                System.out.println("Periodicità non valida. Assicurati di inserire un valore valido tra i seguenti: SETTIMANALE, MENSILE, TRIMESTRALE, ANNUALE.");
-                continue;
+            if (rivistaAttrs.length == 6) {
+                try {
+                    Rivista.Periodicita periodicita = Rivista.Periodicita.valueOf(rivistaAttrs[5].toUpperCase());
+                    Rivista rivista = new Rivista(
+                                                rivistaAttrs[1], // ISBN
+                                                rivistaAttrs[2], // Titolo
+                                                Integer.parseInt(rivistaAttrs[3]), // Anno di pubblicazione
+                                                Integer.parseInt(rivistaAttrs[4]), // Numero di pagine
+                            periodicita, // Autore
+                            "" // Periodicità
+                                        );
+                    catalogo.aggiungiRivista(rivista);
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Periodicità non valida per la rivista: " + rivistaAttrs[2]);
+                }
+            } else {
+                System.out.println("Dati non validi per la rivista: " + Arrays.toString(rivistaAttrs));
             }
-            Rivista rivista = new Rivista(
-                    rivistaAttrs[1], // ISBN
-                    rivistaAttrs[2], // Titolo
-                    Integer.parseInt(rivistaAttrs[3]), // Anno di pubblicazione
-                    Integer.parseInt(rivistaAttrs[4]), // Numero di pagine
-                    "", // Autore
-                    periodicita // Periodicità
-            );
-            catalogo.aggiungiRivista(rivista);
         }
 
         boolean continua = true;
@@ -175,7 +160,7 @@ public class Main {
         if (input.length == 5) {
             try {
                 Rivista.Periodicita periodicita = Rivista.Periodicita.valueOf(input[4].toUpperCase());
-                Rivista rivista = new Rivista(input[0], input[1], Integer.parseInt(input[2]), Integer.parseInt(input[3]), "", periodicita);
+                Rivista rivista = new Rivista(input[0], input[1], Integer.parseInt(input[2]), Integer.parseInt(input[3]), periodicita, "");
                 catalogo.aggiungiRivista(rivista);
                 System.out.println("Rivista aggiunta: " + rivista.getTitolo());
             } catch (IllegalArgumentException e) {
