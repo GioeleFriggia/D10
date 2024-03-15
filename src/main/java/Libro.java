@@ -10,7 +10,6 @@ public class Libro implements Serializable {
     private String autore;
     private String genere;
 
-
     public Libro() {
     }
 

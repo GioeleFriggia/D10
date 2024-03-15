@@ -1,9 +1,8 @@
-import com.github.javafaker.Faker;
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Locale;
+import com.github.javafaker.Faker;
 
 public class GeneraFileTesto {
     public static void main(String[] args) {
@@ -11,7 +10,6 @@ public class GeneraFileTesto {
 
         // Modifica il nome del file di output se necessario
         String nomeFile = "nuovo_catalogo.txt";
-
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeFile))) {
             for (int i = 0; i < 20; i++) {

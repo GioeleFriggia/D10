@@ -13,7 +13,6 @@ public class Rivista implements Serializable {
     private int numeroPagine;
     private Periodicita periodicita;
 
-
     public Rivista() {
     }
 
